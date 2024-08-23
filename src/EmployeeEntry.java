@@ -1,10 +1,10 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class DataEntry extends ArrayList<RVpair> implements Comparable<DataEntry> {
+public class EmployeeEntry extends ArrayList<RVpair> implements Comparable<EmployeeEntry> {
     public Integer sum = 0;
-    DataEntry(String name, String birthDay, Integer income,
-              Integer workExp, Double debtRiskRatio) {
+    EmployeeEntry(String name, String birthDay, Integer income,
+                  Integer workExp, Double debtRiskRatio) {
         super();
         this.add(new RVpair(name));
         this.add(new RVpair(LocalDate.parse(birthDay)));
@@ -12,12 +12,12 @@ public class DataEntry extends ArrayList<RVpair> implements Comparable<DataEntry
         this.add(new RVpair(workExp));
         this.add(new RVpair(debtRiskRatio));
     }
-    DataEntry() {
+    EmployeeEntry() {
         super();
     }
 
     @Override
-    public int compareTo(DataEntry data) {
+    public int compareTo(EmployeeEntry data) {
         return this.sum.compareTo(data.sum);
     }
 }

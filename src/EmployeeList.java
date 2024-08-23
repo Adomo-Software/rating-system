@@ -1,41 +1,38 @@
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-public class DataTable extends TableFrame {
-    private DataEntry sortColumn(DataEntry column) {
+public class EmployeeList extends TableFrame {
+    private EmployeeEntry sortColumn(EmployeeEntry column) {
         Collections.sort(column);
         return column;
     }
 
-    private DataEntry sortColumnReverse(DataEntry column) {
+    private EmployeeEntry sortColumnReverse(EmployeeEntry column) {
         Collections.sort(column, Collections.reverseOrder());
         return column;
     }
 
     private void rateColumn(int columnIndex) {
-        DataEntry originalColumn = getColumn(columnIndex);
-        DataEntry sorted = sortColumn(originalColumn);
+        EmployeeEntry originalColumn = getColumn(columnIndex);
+        EmployeeEntry sorted = sortColumn(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {
             sorted.get(i).rate = i + 1;
         }
     }
 
     private void rateColumnReverse(int columnIndex) {
-        DataEntry originalColumn = getColumn(columnIndex);
-        DataEntry sorted = (DataEntry) sortColumnReverse(originalColumn);
+        EmployeeEntry originalColumn = getColumn(columnIndex);
+        EmployeeEntry sorted = (EmployeeEntry) sortColumnReverse(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {
             sorted.get(i).rate = i + 1;
         }
     }
-    public DataTable rateDataList() {
+    public EmployeeList rateDataList() {
         rateColumnReverse(0);
         rateColumn(1);
         rateColumn(2);
         rateColumn(3);
         rateColumnReverse(4);
-        for (DataEntry row : data) {
+        for (EmployeeEntry row : data) {
             for (RVpair pair: row) {
                 row.sum += pair.rate;
             }
@@ -45,7 +42,7 @@ public class DataTable extends TableFrame {
         return this;
     }
     public void getRated() {
-        for (DataEntry row : data) {
+        for (EmployeeEntry row : data) {
             System.out.println(row + " Total rating: " + row.sum);
         }
     }

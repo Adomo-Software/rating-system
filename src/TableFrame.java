@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableFrame {
-    final List<DataEntry> data;
+    final List<EmployeeEntry> data;
 
     public TableFrame() {
         this.data = new ArrayList<>();
     }
 
-    public void addRow(DataEntry rowData) {
+    public void addRow(EmployeeEntry rowData) {
         data.add(rowData);
     }
 
-    public DataEntry getColumn(int columnIndex) {
-        DataEntry columnData = new DataEntry();
+    public EmployeeEntry getColumn(int columnIndex) {
+        EmployeeEntry columnData = new EmployeeEntry();
         for (List<RVpair> row : data) {
             columnData.add(row.get(columnIndex));
         }
