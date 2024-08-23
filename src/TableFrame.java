@@ -12,8 +12,8 @@ public class TableFrame {
         data.add(rowData);
     }
 
-    public List<RVpair> getColumn(int columnIndex) {
-        List<RVpair> columnData = new ArrayList<>();
+    public DataEntry getColumn(int columnIndex) {
+        DataEntry columnData = new DataEntry();
         for (List<RVpair> row : data) {
             columnData.add(row.get(columnIndex));
         }

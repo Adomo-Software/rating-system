@@ -12,6 +12,9 @@ public class DataEntry extends ArrayList<RVpair> implements Comparable<DataEntry
         this.add(new RVpair(workExp));
         this.add(new RVpair(debtRiskRatio));
     }
+    DataEntry() {
+        super();
+    }
 
     @Override
     public int compareTo(DataEntry data) {

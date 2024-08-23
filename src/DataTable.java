@@ -1,31 +1,30 @@
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class DataTable extends TableFrame {
-    private List<RVpair> sortColumn(List<RVpair> column) {
-        List<RVpair> sortedColumn = new ArrayList<>(column);
-        Collections.sort(sortedColumn);
-        return sortedColumn;
+    private DataEntry sortColumn(DataEntry column) {
+        Collections.sort(column);
+        return column;
     }
 
-    private List<RVpair> sortColumnReverse(List<RVpair> column) {
-        List<RVpair> sortedColumn = new ArrayList<>(column);
-        Collections.sort(sortedColumn, Collections.reverseOrder());
-        return sortedColumn;
+    private DataEntry sortColumnReverse(DataEntry column) {
+        Collections.sort(column, Collections.reverseOrder());
+        return column;
     }
 
     private void rateColumn(int columnIndex) {
-        List<RVpair> originalColumn = getColumn(columnIndex);
-        List<RVpair> sorted = sortColumn(originalColumn);
+        DataEntry originalColumn = getColumn(columnIndex);
+        DataEntry sorted = sortColumn(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {
             sorted.get(i).rate = i + 1;
         }
     }
 
     private void rateColumnReverse(int columnIndex) {
-        List<RVpair> originalColumn = getColumn(columnIndex);
-        List<RVpair> sorted = sortColumnReverse(originalColumn);
+        DataEntry originalColumn = getColumn(columnIndex);
+        DataEntry sorted = (DataEntry) sortColumnReverse(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {
             sorted.get(i).rate = i + 1;
         }
