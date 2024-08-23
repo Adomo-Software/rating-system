@@ -3,19 +3,19 @@ import java.util.Collections;
 import java.util.List;
 
 public class DataList extends DataFrame {
-    public List<RVpair> sortColumn(List<RVpair> column) {
+    private List<RVpair> sortColumn(List<RVpair> column) {
         List<RVpair> sortedColumn = new ArrayList<>(column);
         Collections.sort(sortedColumn);
         return sortedColumn;
     }
 
-    public List<RVpair> sortColumnReverse(List<RVpair> column) {
+    private List<RVpair> sortColumnReverse(List<RVpair> column) {
         List<RVpair> sortedColumn = new ArrayList<>(column);
         Collections.sort(sortedColumn, Collections.reverseOrder());
         return sortedColumn;
     }
 
-    public void rateColumn(int columnIndex) {
+    private void rateColumn(int columnIndex) {
         List<RVpair> originalColumn = getColumn(columnIndex);
         List<RVpair> sorted = sortColumn(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {
@@ -23,7 +23,7 @@ public class DataList extends DataFrame {
         }
     }
 
-    public void rateColumnReverse(int columnIndex) {
+    private void rateColumnReverse(int columnIndex) {
         List<RVpair> originalColumn = getColumn(columnIndex);
         List<RVpair> sorted = sortColumnReverse(originalColumn);
         for (int i = 0; i < sorted.size(); i++) {

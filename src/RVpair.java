@@ -1,7 +1,7 @@
 // Rate/Value Pair = RVpair
 public class RVpair implements Comparable<RVpair> {
     public Integer rate = 0;
-    public Comparable<Object> value;
+    private Comparable<Object> value;
 
     RVpair(Object value) {
         this.value = (Comparable<Object>) value;

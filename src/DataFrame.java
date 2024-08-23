@@ -19,8 +19,4 @@ public class DataFrame {
         }
         return columnData;
     }
-
-    public List<RVpair> getRow(int rowIndex) {
-        return new ArrayList<>(data.get(rowIndex));
-    }
 }
