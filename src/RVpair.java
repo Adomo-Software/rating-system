@@ -9,7 +9,7 @@ public class RVpair implements Comparable<RVpair> {
 
     @Override
     public String toString() {
-        return "(R: " + this.rate + " | V: " + this.value + ")";
+        return this.value + " (" + this.rate + ")";
     }
 
     @Override

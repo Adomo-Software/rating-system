@@ -47,7 +47,7 @@ public class DataList extends DataFrame {
     }
     public void getRated() {
         for (Data row : data) {
-            System.out.println("total rating: " +row.sum + " | data: " + row);
+            System.out.println(row + " Total rating: " + row.sum);
         }
     }
 }
