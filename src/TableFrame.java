@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataFrame {
-    final List<Data> data;
+public class TableFrame {
+    final List<DataEntry> data;
 
-    public DataFrame() {
+    public TableFrame() {
         this.data = new ArrayList<>();
     }
 
-    public void addRow(Data rowData) {
+    public void addRow(DataEntry rowData) {
         data.add(rowData);
     }
 
