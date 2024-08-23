@@ -3,33 +3,34 @@ import java.time.LocalDate;
 import java.util.*;
 
 // Rate/Value Pair = RVpair
-class RVpair<T extends Comparable<T>> implements Comparable<RVpair<T>> {
-    public Integer rate;
-    public T value;
+class RVpair implements Comparable<RVpair> {
+    public Integer rate = 0;
+    public Comparable<Object> value;
 
-    RVpair(T value) {
-        this.value = value;
+    RVpair(Object value) {
+        this.value = (Comparable<Object>) value;
     }
 
     @Override
     public String toString() {
-        return "(" + rate + " . " + value + ")";
+        return "(R: " + this.rate + " | V: " + this.value + ")";
     }
     @Override
-    public int compareTo(RVpair<T> other) {
-        return this.value.compareTo(other.value);
+    public int compareTo(RVpair rVpair) {
+        return this.value.compareTo(rVpair.value);
     }
 }
 
+
 class DataFrame {
-    final List<List<RVpair>> data;
+    final List<Data> data;
 
     public DataFrame() {
         this.data = new ArrayList<>();
     }
 
-    public void addRow(List<RVpair> rowData) {
-        data.add(new ArrayList<>(rowData));
+    public void addRow(Data rowData) {
+        data.add(rowData);
     }
 
     public List<RVpair> getColumn(int columnIndex) {
@@ -79,21 +80,35 @@ class DataList extends DataFrame {
         rateColumn(2);
         rateColumn(3);
         rateColumnReverse(4);
-        for (List<RVpair> row : data) {
-            System.out.println(row);
+        for (Data row : data) {
+            for (RVpair pair: row) {
+                row.sum += pair.rate;
+            }
         }
+
+        Collections.sort(data, Collections.reverseOrder());
         return this;
     }
+    public void getRated() {
+        for (Data row : data) {
+            System.out.println("total rating: " +row.sum + " | data: " + row);
+        }
+    }
 }
-class Data extends ArrayList<RVpair> {
+class Data extends ArrayList<RVpair> implements Comparable<Data> {
     public Integer sum = 0;
     Data(String name, String birthDay, Integer income, Integer workExp, Double debtRiskRatio) {
         super();
-        this.add(new RVpair<>(name));
-        this.add(new RVpair<>(LocalDate.parse(birthDay)));
-        this.add(new RVpair<>(income));
-        this.add(new RVpair<>(workExp));
-        this.add(new RVpair<>(debtRiskRatio));
+        this.add(new RVpair(name));
+        this.add(new RVpair(LocalDate.parse(birthDay)));
+        this.add(new RVpair(income));
+        this.add(new RVpair(workExp));
+        this.add(new RVpair(debtRiskRatio));
+    }
+
+    @Override
+    public int compareTo(Data data) {
+        return this.sum.compareTo(data.sum);
     }
 }
 
@@ -105,25 +120,8 @@ public class Main {
         dataList.addRow(new Data("Carlos", "1978-08-11", 25000, 16, 0.65));
         dataList.addRow(new Data("Aisha", "1995-03-09", 8000, 5, 0.2));
         dataList.addRow(new Data("David", "1986-11-28", 13000, 12, 0.4));
-//        dataList.addRow(new Data("Maria", "1970-06-17", 60000, 25, 0.7));
         dataList.addRow(new Data("Maria", "1970-06-17", 60000, 25, 0.7));
 
-        dataList.rateDataList();
-        System.out.println();
-        /*
-        [[(0 . Emily), (0 . 1992-05-22), (0 . 15000), (0 . 8), (0 . 0.3)],
-         [(0 . Carlos), (0 . 1978-08-11), (0 . 25000), (0 . 16), (0 . 0.65)],
-         [(0 . Aisha), (0 . 1995-03-09), (0 . 8000), (0 . 5), (0 . 0.2)],
-         [(0 . David), (0 . 1986-11-28), (0 . 13000), (0 . 12), (0 . 0.4)],
-         [(0 . Maria), (0 . 1970-06-17), (0 . 60000), (0 . 25), (0 . 0.7)],
-         [(0 . Maria), (0 . 1970-06-17), (0 . 60000), (0 . 25), (0 . 0.7)]]
-        */
-
-//        System.out.println(dataList.getRow(5));
-//        System.out.println(dataList.getRow(4));
-//        System.out.println(dataList.getColumn(1));
-//        System.out.println(dataList.getColumn(0));
-
-
+        dataList.rateDataList().getRated();
     }
 }
