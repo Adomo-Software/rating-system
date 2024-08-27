@@ -6,14 +6,11 @@ import java.util.Map;
 public class TableFrame {
     Map<String, Map<Integer, Object>> rows;
     Map<Integer, Map<String, Object>> columns;
-    Integer rowIndex;
-    Integer colIndex;
+
 
     public TableFrame() {
         this.rows = new HashMap<>();
         this.columns = new HashMap<>();
-        rowIndex = 0;
-        colIndex = 0;
     }
 
     public void addRow(String rowName) {
@@ -22,7 +19,7 @@ public class TableFrame {
         }
     }
 
-    public void addColumn(int columnIndex, String rowName, Object value) {
+    protected void addColumn(int columnIndex, String rowName, Object value) {
         addRow(rowName);
 
         Map<Integer, Object> row = rows.get(rowName);
@@ -53,5 +50,29 @@ public class TableFrame {
 
             System.out.println(rowOutput);
         }
+    }
+}
+
+class Table extends TableFrame {
+    // Same as TableFrame, but with indexes for tracking columns
+    // (instead of needing to supply indexes manually)
+
+    Map<String, Integer> indexes;
+
+    public Table () {
+        super();
+        this.indexes = new HashMap<>();
+    }
+
+    @Override
+    public void addRow(String rowName) {
+        super.addRow(rowName);
+        this.indexes.put(rowName, 0);
+    }
+
+    public void addColumn(String rowName, Object value) {
+        Integer index = indexes.get(rowName);
+        super.addColumn(index, rowName, value);
+        indexes.put(rowName, index + 1);
     }
 }
