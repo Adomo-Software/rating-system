@@ -1,23 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        EmployeeList dataList = new EmployeeList();
+        TableFrame t = new TableFrame();
 
-        dataList.addRow(new EmployeeEntry(
-                "Emily", "1992-05-22",
-                15000, 8, 0.3));
-        dataList.addRow(new EmployeeEntry(
-                "Carlos", "1978-08-11",
-                25000, 16, 0.65));
-        dataList.addRow(new EmployeeEntry(
-                "Aisha", "1995-03-09",
-                8000, 5, 0.2));
-        dataList.addRow(new EmployeeEntry(
-                "David", "1986-11-28",
-                13000, 12, 0.4));
-        dataList.addRow(new EmployeeEntry(
-                "Maria", "1970-06-17",
-                60000, 25, 0.7));
+        t.addRow("name");
+        t.addColumn(0, "name", new RVpair("jeff"));
+        t.addColumn(1, "name", new RVpair("adam"));
 
-        dataList.rateDataList().getRated();
+        t.addRow("age");
+        t.addColumn(0, "age", new RVpair(21));
+        t.addColumn(1, "age", new RVpair(22));
+
+        t.printTable();
     }
 }
