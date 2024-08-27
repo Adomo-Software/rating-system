@@ -7,9 +7,8 @@ public class Main {
         t.setColumn("Aisha", "1995-03-09", 8000, 5, 0.2);
         t.setColumn("David", "1986-11-28", 13000, 12, 0.4);
         t.setColumn("Maria", "1970-06-17", 60000, 25, 0.7);
-//
-        t.rate();
 
+        t.rate();
         t.printTable();
 
     }
