@@ -3,12 +3,12 @@ public class Main {
         Table t = new Table();
 
         t.addRow("name");
-        t.addColumn("name", new RVpair("jeff"));
-        t.addColumn("name", new RVpair("adam"));
+        t.addColumn("name", new RateValuePair("jeff"));
+        t.addColumn("name", new RateValuePair("adam"));
 
         t.addRow("age");
-        t.addColumn("age", new RVpair(21));
-        t.addColumn("age", new RVpair(22));
+        t.addColumn("age", new RateValuePair(21));
+        t.addColumn("age", new RateValuePair(22));
 
         t.printTable();
     }

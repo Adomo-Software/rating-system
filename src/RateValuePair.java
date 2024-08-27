@@ -1,9 +1,8 @@
-// Rate/Value Pair = RVpair
-public class RVpair implements Comparable<RVpair> {
+public class RateValuePair implements Comparable<RateValuePair> {
     public Integer rate = 0;
     private Comparable<Object> value;
 
-    RVpair(Object value) {
+    RateValuePair(Object value) {
         this.value = (Comparable<Object>) value;
     }
 
@@ -13,7 +12,7 @@ public class RVpair implements Comparable<RVpair> {
     }
 
     @Override
-    public int compareTo(RVpair rVpair) {
+    public int compareTo(RateValuePair rVpair) {
         return this.value.compareTo(rVpair.value);
     }
 }
