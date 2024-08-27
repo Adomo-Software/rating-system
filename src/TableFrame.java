@@ -29,6 +29,7 @@ public class TableFrame {
         columnMap.put(rowName, value);
     }
 
+
     public Map<Integer, Object> getRow(String rowName) {
         return rows.getOrDefault(rowName, new HashMap<>());
     }
@@ -74,6 +75,13 @@ class Table extends TableFrame {
         Integer index = indexes.get(rowName);
         super.addColumn(index, rowName, value);
         indexes.put(rowName, index + 1);
+    }
+
+    public void setColumn(String rowName, Object ...values) {
+        addRow(rowName);
+        for (Object value : values) {
+            addColumn(rowName, value);
+        }
     }
 }
 
