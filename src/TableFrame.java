@@ -76,3 +76,12 @@ class Table extends TableFrame {
         indexes.put(rowName, index + 1);
     }
 }
+
+class RateValueTable extends Table {
+    public RateValueTable () {
+        super();
+    }
+    public void addColumn(String rowName, Object value) {
+        super.addColumn(rowName, new RateValuePair(value));
+    }
+}
