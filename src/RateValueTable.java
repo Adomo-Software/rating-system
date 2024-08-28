@@ -15,8 +15,8 @@ public class RateValueTable extends Table {
     private void rateColumn(Integer column) {
         List<RateValuePair> list = new ArrayList<>();
         for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
-            RateValuePair rvp = (RateValuePair) rowEntry.getValue().get(column);
-            list.add(rvp);
+            RateValuePair rateValuePair = (RateValuePair) rowEntry.getValue().get(column);
+            list.add(rateValuePair);
         }
 
         Collections.sort(list);
@@ -31,12 +31,12 @@ public class RateValueTable extends Table {
             rateColumn(i);
         }
         for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
-            Integer acc = 0;
-            for (Map.Entry<Integer, Object> o : rowEntry.getValue().entrySet()) {
-                RateValuePair rvp = (RateValuePair) o.getValue();
-                acc += rvp.getRate();
+            Integer accumulator = 0;
+            for (Map.Entry<Integer, Object> object : rowEntry.getValue().entrySet()) {
+                RateValuePair rateValuePair = (RateValuePair) object.getValue();
+                accumulator += rateValuePair.getRate();
             }
-            sums.put(rowEntry, acc);
+            sums.put(rowEntry, accumulator);
         }
     }
 
@@ -47,8 +47,8 @@ public class RateValueTable extends Table {
             Map<Integer, Object> rowData = rowEntry.getValue();
             StringBuilder rowOutput = new StringBuilder(String.format("%-10s", rowName));
 
-            for (int col : super.getColumns().keySet()) {
-                Object value = rowData.getOrDefault(col, " ");
+            for (int column : super.getColumns().keySet()) {
+                Object value = rowData.getOrDefault(column, " ");
                 rowOutput.append(String.format(" | %10s", value));
             }
             rowOutput.append(String.format(" | Total: %10s", sums.get(rowEntry)));

@@ -47,12 +47,11 @@ public class TableFrame {
             Map<Integer, Object> rowData = rowEntry.getValue();
             StringBuilder rowOutput = new StringBuilder(String.format("%-10s", rowName));
 
-            for (int col : columns.keySet()) {
-                Object value = rowData.getOrDefault(col, " ");
+            for (int column : columns.keySet()) {
+                Object value = rowData.getOrDefault(column, " ");
                 rowOutput.append(String.format(" | %10s", value));
             }
             System.out.println(rowOutput);
         }
     }
 }
-
