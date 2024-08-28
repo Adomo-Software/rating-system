@@ -2,24 +2,46 @@
 <html class="mozilla"><head>
 
 </head>
-  <p>The candidates: </p>
+
+
+This program uses first column as a hash key (must be String).
+
+And compares and rates other (non first) column elements in ascending order.
+
+then sums up the ratings and sorts every row based on the sum of rating
+
+Note: Columns elements must all be same type, Rows can be different type
+
+
+
+<body>
+
+### Example: 
+#### Usage:
+```
+RateValueTable t = new RateValueTable();
+
+t.setColumn("Emily", "1992-05-22", 15000, 8, 0.3);
+t.setColumn("Carlos", "1978-08-11", 25000, 16, 0.65);
+t.setColumn("Aisha", "1995-03-09", 8000, 5, 0.2);
+t.setColumn("David", "1986-11-28", 13000, 12, 0.4);
+t.setColumn("Maria", "1970-06-17", 60000, 25, 0.7);
+
+t.rate();
+t.printTable()
+
+```
+Note: Could replace `"1992-05-22"` to `LocalDate.parse("1992-05-22")`, but the results will be the same.
+
+#### Input:
 
 <div class="table-wrap">
 <table class="confluenceTable"><tbody>
-<tr>
-<td class="confluenceTd">Name</td>
-<td class="confluenceTd">Birth Day</td>
-<td class="confluenceTd">Incomes</td>
-<td class="confluenceTd">Work Experience (Years)</td>
-<td class="confluenceTd">Debt Risk Ratio</td>
-</tr>
-<tr>
 <td class="confluenceTd">Emily</td>
 <td class="confluenceTd">1992-05-22</td>
 <td class="confluenceTd">15000</td>
 <td class="confluenceTd">8</td>
 <td class="confluenceTd">0.3</td>
-</tr>
 <tr>
 <td class="confluenceTd">Carlos</td>
 <td class="confluenceTd">1978-08-11</td>
@@ -51,42 +73,50 @@
 </tbody></table>
 </div>
 
-
-<p>Your task is to implement a rating system for provided data collection.</p>
-
-<p>The concept: every column should be <b>ordered ascending from smallest to largest and get a rate depends on a place in the table.</b>
- For example the biggest work experience  is for 25 year.  When smallest
- is for 5 years. So, the  first position will get a rate 1. The smallest
- will get the rate 5 as only 5 rows in the table.  Such a rule must be 
-applied to every column. All ratings sum should be in a new  column and 
-ordered by <b>ascending</b>.</p>
+#### output:
 
 <div class="table-wrap">
 <table class="confluenceTable"><tbody>
+<td class="confluenceTd">Maria</td>
+<td class="confluenceTd">1970-06-17(1)</td>
+<td class="confluenceTd">60000(5)</td>
+<td class="confluenceTd">25(5)</td>
+<td class="confluenceTd">0.7(5)</td>
+<td class="confluenceTd">Total: 16</td>
 <tr>
-<td class="confluenceTd">Emily (2)</td>
-<td class="confluenceTd">1992-05-22 (2)</td>
-<td class="confluenceTd">15000 (2)</td>
-<td class="confluenceTd">8 (1)</td>
-<td class="confluenceTd">0.3(1)</td>
-<td class="confluenceTd">8</td>
+<td class="confluenceTd">Carlos</td>
+<td class="confluenceTd">1978-08-11(2)</td>
+<td class="confluenceTd">25000(4)</td>
+<td class="confluenceTd">16(4)</td>
+<td class="confluenceTd">0.65(4)</td>
+<td class="confluenceTd">Total: 14</td>
 </tr>
 <tr>
-<td class="confluenceTd">Carlos (1)</td>
-<td class="confluenceTd">1978-08-11 (1)</td>
-<td class="confluenceTd">25000  (1)</td>
-<td class="confluenceTd">16 (2)</td>
-<td class="confluenceTd">0.65 (2)</td>
-<td class="confluenceTd">7</td>
+<td class="confluenceTd">David</td>
+<td class="confluenceTd">1986-11-28(3)</td>
+<td class="confluenceTd">13000(2)</td>
+<td class="confluenceTd">12(3)</td>
+<td class="confluenceTd">0.4(3)</td>
+<td class="confluenceTd">Total: 11</td>
+</tr>
+<tr>
+<td class="confluenceTd">Emily</td>
+<td class="confluenceTd">1986-11-28(3)</td>
+<td class="confluenceTd">13000(2)</td>
+<td class="confluenceTd">8(2)</td>
+<td class="confluenceTd">0.3(2)</td>
+<td class="confluenceTd">Total: 11</td>
+</tr>
+<tr>
+<td class="confluenceTd">Aisha(5)</td>
+<td class="confluenceTd">1995-03-09(1)</td>
+<td class="confluenceTd">8000(1)</td>
+<td class="confluenceTd">5(1)</td>
+<td class="confluenceTd">0.2(1)</td>
+<td class="confluenceTd">Total: 8</td>
 </tr>
 </tbody></table>
 </div>
 
-
-<p>Requirements: <b>NO if/else in any way!!!</b></p>
-
-<p>The documentati:</p>
-
-<p><a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html" title="smart-link" class="external-link" rel="nofollow noreferrer">https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html</a> </p>
 
 </body></html>

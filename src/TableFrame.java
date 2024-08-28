@@ -2,8 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TableFrame {
-    private Map<String, Map<Integer, Object>> rows;
-    private Map<Integer, Map<String, Object>> columns;
+    private final Map<String, Map<Integer, Object>> rows;
+    private final Map<Integer, Map<String, Object>> columns;
 
     public Map<Integer, Map<String, Object>> getColumns() {
         return columns;

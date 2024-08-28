@@ -1,12 +1,30 @@
 import java.util.*;
 
 public class RateValueTable extends Table {
-    private final Map<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
+    private HashMap<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
 
     public RateValueTable() {
         super();
         sums = new HashMap<>();
     }
+
+    public static HashMap<Map.Entry<String, Map<Integer, Object>>, Integer>
+    sortByValue(  HashMap<Map.Entry<String, Map<Integer, Object>>, Integer> hm) {
+        List<Map.Entry<Map.Entry<String, Map<Integer, Object>>, Integer>> list =
+                new LinkedList<>(hm.entrySet());
+
+        list.sort(
+                Map.Entry.<Map.Entry<String, Map<Integer, Object>>, Integer>
+                comparingByValue().reversed());
+
+        HashMap<Map.Entry<String, Map<Integer, Object>>, Integer>
+                temp = new LinkedHashMap<>();
+        for (Map.Entry<Map.Entry<String, Map<Integer, Object>>, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
+    }
+
 
     public void addColumn(String rowName, Object value) {
         super.addColumn(rowName, new RateValuePair(value));
@@ -38,21 +56,22 @@ public class RateValueTable extends Table {
             }
             sums.put(rowEntry, accumulator);
         }
+        sums = sortByValue(sums);
     }
 
     @Override
     public void printTable() {
-        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
-            String rowName = rowEntry.getKey();
-            Map<Integer, Object> rowData = rowEntry.getValue();
+        for (Map.Entry<Map.Entry<String, Map<Integer, Object>>, Integer> sum : sums.entrySet()) {
+            String rowName = sum.getKey().getKey();
+            Map<Integer, Object> rowData = sum.getKey().getValue();
             StringBuilder rowOutput = new StringBuilder(String.format("%-10s", rowName));
-
-            for (int column : super.getColumns().keySet()) {
-                Object value = rowData.getOrDefault(column, " ");
-                rowOutput.append(String.format(" | %10s", value));
+            for (Object column : rowData.values()) {
+                rowOutput.append(String.format(" | %10s", column));
             }
-            rowOutput.append(String.format(" | Total: %10s", sums.get(rowEntry)));
+            rowOutput.append(String.format(" | Total: %10s", sum.getValue()));
+
             System.out.println(rowOutput);
         }
     }
 }
+
