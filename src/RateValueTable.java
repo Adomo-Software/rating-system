@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class RateValueTable extends Table {
-    Map<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
+    private final Map<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
 
     public RateValueTable() {
         super();
@@ -12,9 +12,9 @@ public class RateValueTable extends Table {
         super.addColumn(rowName, new RateValuePair(value));
     }
 
-    public void rateColumn(Integer column) {
+    private void rateColumn(Integer column) {
         List<RateValuePair> list = new ArrayList<>();
-        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.rows.entrySet()) {
+        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
             RateValuePair rvp = (RateValuePair) rowEntry.getValue().get(column);
             list.add(rvp);
         }
@@ -22,19 +22,19 @@ public class RateValueTable extends Table {
         Collections.sort(list);
 
         for (int i = 0; i < list.size(); i++) {
-            list.get(i).rate = i + 1;
+            list.get(i).setRate(i + 1);
         }
     }
 
     public void rate() {
-        for (int i = 0; i < columns.size(); i++) {
+        for (int i = 0; i < super.getColumns().size(); i++) {
             rateColumn(i);
         }
-        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.rows.entrySet()) {
+        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
             Integer acc = 0;
             for (Map.Entry<Integer, Object> o : rowEntry.getValue().entrySet()) {
                 RateValuePair rvp = (RateValuePair) o.getValue();
-                acc += rvp.rate;
+                acc += rvp.getRate();
             }
             sums.put(rowEntry, acc);
         }
@@ -42,12 +42,12 @@ public class RateValueTable extends Table {
 
     @Override
     public void printTable() {
-        for (Map.Entry<String, Map<Integer, Object>> rowEntry : rows.entrySet()) {
+        for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
             String rowName = rowEntry.getKey();
             Map<Integer, Object> rowData = rowEntry.getValue();
             StringBuilder rowOutput = new StringBuilder(String.format("%-10s", rowName));
 
-            for (int col : columns.keySet()) {
+            for (int col : super.getColumns().keySet()) {
                 Object value = rowData.getOrDefault(col, " ");
                 rowOutput.append(String.format(" | %10s", value));
             }

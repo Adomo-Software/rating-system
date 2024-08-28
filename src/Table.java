@@ -5,7 +5,7 @@ public class Table extends TableFrame {
     // Same as TableFrame, but with indexes for tracking columns
     // (instead of needing to supply indexes manually)
 
-    Map<String, Integer> indexes;
+    private final Map<String, Integer> indexes;
 
     public Table () {
         super();
