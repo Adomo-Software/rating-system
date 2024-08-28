@@ -108,8 +108,8 @@ Note: Could replace `"1992-05-22"` to `LocalDate.parse("1992-05-22")`, but the r
 <td class="confluenceTd">Total: 11</td>
 </tr>
 <tr>
-<td class="confluenceTd">Aisha(5)</td>
-<td class="confluenceTd">1995-03-09(1)</td>
+<td class="confluenceTd">Aisha</td>
+<td class="confluenceTd">1995-03-09(5)</td>
 <td class="confluenceTd">8000(1)</td>
 <td class="confluenceTd">5(1)</td>
 <td class="confluenceTd">0.2(1)</td>
