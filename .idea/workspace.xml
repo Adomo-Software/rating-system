@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7da3a285-e307-4643-abbe-5c2c3cdee045" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RateValueTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RateValueTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TableFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TableFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JC_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JC_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RateValuePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RateValuePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RateValueTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RateValueTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TableFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +46,13 @@
     "Application.Main.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "feature/JC-2-build-rating-system",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ade/IdeaProjects/JC_2",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
