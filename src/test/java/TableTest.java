@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,16 +23,21 @@ public class TableTest {
         assertEquals(0, table.getRows().get("Row1").size());
     }
 
-    @Test
-    public void testAddColumnWithRowTracking() {
-        table.addRow("Row1");
-        table.addColumn("Row1", "Value1");
-        table.addColumn("Row1", "Value2");
+	@ParameterizedTest
+	@CsvSource({
+		"Row1, Value1, Value2",
+		"Row2, A, B",
+		"Row3, X, Y, Z"
+	})
+	public void testAddColumnWithRowTracking(String row, String value1, String value2) {
+		table.addRow(row);
+		table.addColumn(row, value1);
+		table.addColumn(row, value2);
 
-        assertEquals(2, table.getRow("Row1").size());
-        assertEquals("Value1", table.getRow("Row1").get(0));
-        assertEquals("Value2", table.getRow("Row1").get(1));
-    }
+		assertEquals(2, table.getRow(row).size());
+		assertEquals(value1, table.getRow(row).get(0));
+		assertEquals(value2, table.getRow(row).get(1));
+	}
 
     @Test
     public void testSetColumn() {

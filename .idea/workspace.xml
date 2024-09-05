@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7da3a285-e307-4643-abbe-5c2c3cdee045" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RateValuePairTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RateValueTableTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TableFrameTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TableTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RateValueTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RateValueTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RateValueTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RateValueTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TableFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TableFrameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RateValuePairTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RateValuePairTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RateValueTableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RateValueTableTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TableFrameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TableFrameTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +40,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Unnamed.executor": "Run",
+    "Application.Unnamed.executor": "Coverage",
     "JUnit.All in JC_2.executor": "Run",
-    "JUnit.RateValuePairTest.executor": "Run",
-    "JUnit.RateValueTableTest.executor": "Run",
+    "JUnit.RateValuePairTest.executor": "Coverage",
+    "JUnit.RateValueTableTest.executor": "Coverage",
     "JUnit.RateValueTableTest.testConstructorAndGetters.executor": "Run",
     "JUnit.RateValueTableTest.testRate.executor": "Run",
     "JUnit.RateValueTableTest.testRateColumn.executor": "Run",
     "JUnit.TableFrameTest.executor": "Run",
-    "JUnit.TableTest.testOverrideAddRow.executor": "Debug",
+    "JUnit.TableFrameTest.testAddColumn.executor": "Coverage",
+    "JUnit.TableTest.testOverrideAddRow.executor": "Coverage",
     "JUnit.Unnamed.executor": "Run",
     "Maven.JC_2 [resources:testResources].executor": "Run",
     "Maven.JC_2.executor": "Run",
@@ -78,7 +78,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in JC_2">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="JC_2" />
@@ -112,32 +112,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RateValueTableTest.testRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JC_2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RateValueTableTest" />
-      <option name="METHOD_NAME" value="testRate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RateValueTableTest.testRateColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JC_2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RateValueTableTest" />
-      <option name="METHOD_NAME" value="testRateColumn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TableFrameTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JC_2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TableFrameTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableFrameTest.testAddColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JC_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TableFrameTest" />
+      <option name="METHOD_NAME" value="testAddColumn(int,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableTest.testOverrideAddRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JC_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TableTest" />
+      <option name="METHOD_NAME" value="testOverrideAddRow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,20 +186,20 @@
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.Unnamed" />
       <item itemvalue="JUnit.TableFrameTest" />
-      <item itemvalue="JUnit.All in JC_2" />
+      <item itemvalue="JUnit.TableFrameTest.testAddColumn" />
       <item itemvalue="JUnit.RateValuePairTest" />
+      <item itemvalue="JUnit.TableTest.testOverrideAddRow" />
+      <item itemvalue="JUnit.All in JC_2" />
       <item itemvalue="JUnit.RateValueTableTest" />
-      <item itemvalue="JUnit.RateValueTableTest.testRate" />
-      <item itemvalue="JUnit.RateValueTableTest.testRateColumn" />
       <item itemvalue="Maven.JC_2 [resources:testResources]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in JC_2" />
-        <item itemvalue="JUnit.RateValueTableTest.testRate" />
-        <item itemvalue="JUnit.RateValueTableTest.testRateColumn" />
+        <item itemvalue="JUnit.TableFrameTest.testAddColumn" />
         <item itemvalue="JUnit.RateValueTableTest" />
         <item itemvalue="JUnit.RateValuePairTest" />
+        <item itemvalue="JUnit.TableTest.testOverrideAddRow" />
+        <item itemvalue="JUnit.All in JC_2" />
       </list>
     </recent_temporary>
   </component>
@@ -213,5 +213,12 @@
       <updated>1724414440860</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/JC_2$TableTest_testOverrideAddRow.ic" NAME="TableTest.testOverrideAddRow Coverage Results" MODIFIED="1725113238368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JC_2$RateValuePairTest.ic" NAME="RateValuePairTest Coverage Results" MODIFIED="1725549070077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JC_2$TableFrameTest_testAddColumn.ic" NAME="TableFrameTest.testAddColumn Coverage Results" MODIFIED="1725552521187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JC_2$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1725552666031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JC_2$RateValueTableTest.ic" NAME="RateValueTableTest Coverage Results" MODIFIED="1725549101745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
