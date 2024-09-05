@@ -30,4 +30,5 @@ public class Table extends TableFrame {
             addColumn(rowName, value);
         }
     }
+
 }

@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class RateValueTable extends Table {
-    private HashMap<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
+    protected HashMap<Map.Entry<String, Map<Integer, Object>>, Integer> sums;
 
     public RateValueTable() {
         super();
@@ -30,7 +30,7 @@ public class RateValueTable extends Table {
         super.addColumn(rowName, new RateValuePair(value));
     }
 
-    private void rateColumn(Integer column) {
+    protected void rateColumn(Integer column) {
         List<RateValuePair> list = new ArrayList<>();
         for (Map.Entry<String, Map<Integer, Object>> rowEntry : super.getRows().entrySet()) {
             RateValuePair rateValuePair = (RateValuePair) rowEntry.getValue().get(column);
@@ -66,7 +66,7 @@ public class RateValueTable extends Table {
             Map<Integer, Object> rowData = sum.getKey().getValue();
             StringBuilder rowOutput = new StringBuilder(String.format("%-10s", rowName));
             for (Object column : rowData.values()) {
-                rowOutput.append(String.format(" | %10s", column));
+                rowOutput.append(String.format(" | %13s", column));
             }
             rowOutput.append(String.format(" | Total: %10s", sum.getValue()));
 
